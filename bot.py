@@ -58,11 +58,16 @@ class Bot(Client):
         self.LOGGER(__name__).info(f"Bot Running...!\n\nCreated By \nhttps://github.com/jansh7784")
         self.LOGGER(__name__).info(f"""💖 ANSH BOTZ 💖""")
         self.username = usr_bot_me.username
-        #web-response
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        bind_address = "0.0.0.0"
-        await web.TCPSite(app, bind_address, PORT).start()
+        #web-response for Railway healthcheck
+        try:
+            app = web.AppRunner(await web_server())
+            await app.setup()
+            bind_address = "0.0.0.0"
+            await web.TCPSite(app, bind_address, int(PORT)).start()
+            self.LOGGER(__name__).info(f"Web server started on port {PORT}")
+        except Exception as e:
+            self.LOGGER(__name__).warning(f"Web server failed to start: {e}")
+            # Don't exit, bot can still work without web server
 
     async def stop(self, *args):
         await super().stop()

@@ -66,22 +66,15 @@ FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hello {mention}\n\n<b>You Need 
 
 
 
-ADMINS.append(OWNER_ID)
-ADMINS.append(1991559687)
-ADMINS.append(1716268996)
+if OWNER_ID not in ADMINS:
+    ADMINS.append(OWNER_ID)
 
-LOG_FILE_NAME = "filesharingbot.txt"
-
+# Railway-friendly logging (no file logging)
 logging.basicConfig(
     level=logging.INFO,
     format="[%(asctime)s - %(levelname)s] - %(name)s - %(message)s",
     datefmt='%d-%b-%y %H:%M:%S',
     handlers=[
-        RotatingFileHandler(
-            LOG_FILE_NAME,
-            maxBytes=50000000,
-            backupCount=10
-        ),
         logging.StreamHandler()
     ]
 )

@@ -1,9 +1,17 @@
 import pymongo, os
+import logging
 from config import DB_URL, DB_NAME
 
-dbclient = pymongo.MongoClient(DB_URL)
-database = dbclient[DB_NAME]
-user_data = database['users']
+logger = logging.getLogger(__name__)
+
+try:
+    dbclient = pymongo.MongoClient(DB_URL)
+    database = dbclient[DB_NAME]
+    user_data = database['users']
+    logger.info("✅ MongoDB connection established successfully")
+except Exception as e:
+    logger.error(f"❌ MongoDB connection failed: {e}")
+    raise
 
 
 

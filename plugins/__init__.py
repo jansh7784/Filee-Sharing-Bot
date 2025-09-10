@@ -11,8 +11,8 @@ async def web_server():
 
 
 
-# Jishu Developer 
+# Ansh Jain 
 # Don't Remove Credit 🥺
-# Telegram Channel @Madflix_Bots
-# Backup Channel @JishuBotz
-# Developer @JishuDeveloper
+# GitHub: https://github.com/jansh7784
+# LinkedIn: https://linkedin.com/in/ansh--jain
+# Developer @jansh7784
