@@ -86,11 +86,16 @@ async def main():
         
         # Check environment variables
         if not check_required_env_vars():
-            sys.exit(1)
+            logger.error("❌ Environment variables missing - starting web server only")
+            # Start web server for healthcheck even if bot can't start
+            await start_web_server_only()
+            return
             
         # Validate configuration
         if not validate_config():
-            sys.exit(1)
+            logger.error("❌ Configuration invalid - starting web server only")
+            await start_web_server_only()
+            return
             
         logger.info("=" * 60)
         
@@ -116,6 +121,36 @@ async def main():
         logger.error(f"❌ Fatal error: {str(e)}")
         logger.error("📋 Full traceback:")
         traceback.print_exc()
+        # Try to start web server for healthcheck
+        try:
+            await start_web_server_only()
+        except:
+            sys.exit(1)
+
+async def start_web_server_only():
+    """Start only web server for healthcheck"""
+    try:
+        from aiohttp import web
+        from plugins.route import routes
+        
+        app = web.Application()
+        app.add_routes(routes)
+        
+        port = int(os.environ.get("PORT", "8080"))
+        runner = web.AppRunner(app)
+        await runner.setup()
+        
+        site = web.TCPSite(runner, "0.0.0.0", port)
+        await site.start()
+        
+        logger.info(f"✅ Web server started on port {port} for healthcheck")
+        
+        # Keep running
+        while True:
+            await asyncio.sleep(1)
+            
+    except Exception as e:
+        logger.error(f"❌ Web server failed: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":
