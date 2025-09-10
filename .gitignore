@@ -135,6 +135,8 @@ dmypy.json
 # Log files
 *.log
 *.txt
+# Allow dependency specifications
+!requirements.txt
 
 # IDE files
 .vscode/
