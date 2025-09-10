@@ -28,16 +28,23 @@ A powerful Telegram bot for secure music file sharing with advanced features lik
 
 ## ⚙️ Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `BOT_TOKEN` | Your bot token from @BotFather | ✅ |
-| `API_ID` | Your API ID from my.telegram.org | ✅ |
-| `API_HASH` | Your API Hash from my.telegram.org | ✅ |
-| `OWNER_ID` | Your Telegram user ID | ✅ |
-| `CHANNEL_ID` | Storage channel ID (where files are stored) | ✅ |
-| `FORCE_SUB_CHANNEL` | Channel ID for force subscription | ✅ |
-| `DB_URL` | MongoDB connection string | ✅ |
-| `ADMINS` | Space-separated admin user IDs | ❌ |
+| Variable | Description | Required | Example |
+|----------|-------------|----------|---------|
+| `BOT_TOKEN` | Your bot token from @BotFather | ✅ | `1234567890:ABC...` |
+| `API_ID` | Your API ID from my.telegram.org | ✅ | `1234567` |
+| `API_HASH` | Your API Hash from my.telegram.org | ✅ | `abcdef123456...` |
+| `OWNER_ID` | Your Telegram user ID | ✅ | `123456789` |
+| `CHANNEL_ID` | Storage channel ID (where files are stored) | ✅ | `-1001234567890` |
+| `FORCE_SUB_CHANNEL` | Channel ID for force subscription | ✅ | `-1001234567890` |
+| `DB_URL` | MongoDB connection string | ✅ | `mongodb+srv://...` |
+| `DB_NAME` | Database name | ❌ | `anshmusicbot` |
+| `ADMINS` | Space-separated admin user IDs | ❌ | `123456789 987654321` |
+| `PROTECT_CONTENT` | Enable content protection | ❌ | `True` |
+| `FILE_AUTO_DELETE` | Auto-delete time in seconds | ❌ | `1200` |
+| `PORT` | Server port | ❌ | `8080` |
+| `TG_BOT_WORKERS` | Number of bot workers | ❌ | `4` |
+
+> **Note:** Copy `env.example` to `.env` and fill in your actual values for local development.
 
 ## 📋 Setup Instructions
 

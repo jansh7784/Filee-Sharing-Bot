@@ -5,18 +5,18 @@ from logging.handlers import RotatingFileHandler
 
 
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "1950074583:AAHS6Zh2fAsA-2HsIkJwF8tXGDsNUpWBH_I")
-API_ID = int(os.environ.get("API_ID", "7162326"))
-API_HASH = os.environ.get("API_HASH", "6fce46ac6f18aa4db3e4008716ca23e1")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+API_ID = int(os.environ.get("API_ID", ""))
+API_HASH = os.environ.get("API_HASH", "")
 
 
-OWNER_ID = int(os.environ.get("OWNER_ID", "1991559687"))
-DB_URL = os.environ.get("DB_URL", "mongodb+srv://johndarvis164_db_user:A8jXasyAYLC2YPTg@cluster0.gchctwz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DB_NAME = os.environ.get("DB_NAME", "madflixbotz")
+OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+DB_URL = os.environ.get("DB_URL", "")
+DB_NAME = os.environ.get("DB_NAME", "anshmusicbot")
 
 
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1003055836254"))
-FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1003006250672"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
+FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", ""))
 
 
 FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "1200")) # auto delete in seconds (20 minutes)
@@ -28,8 +28,8 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 
 try:
-    ADMINS=[1991559687, 1716268996]
-    for x in (os.environ.get("ADMINS", "1991559687 1716268996").split()):
+    ADMINS=[]
+    for x in (os.environ.get("ADMINS", "").split()):
         ADMINS.append(int(x))
 except ValueError:
     raise Exception("Your Admins list does not contain valid integers.")

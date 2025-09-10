@@ -8,42 +8,42 @@
   "env": {
       "API_ID": {
           "description": "Your APP ID From my.telegram.org ",
-          "value": "7162326",
+          "value": "",
           "required": true
       },
       "API_HASH": {
           "description": "Your API Hash From my.telegram.org ",
-          "value": "6fce46ac6f18aa4db3e4008716ca23e1",
+          "value": "",
           "required": true
       },
       "BOT_TOKEN": {
           "description": "Your Bot Token From @BotFather",
-          "value": "1950074583:AAHS6Zh2fAsA-2HsIkJwF8tXGDsNUpWBH_I",
+          "value": "",
           "required": true
       },
       "OWNER_ID": {
         "description":"Add Your User ID here",
-        "value": "1991559687",
+        "value": "",
         "required": true
       },
       "CHANNEL_ID": {
           "description":"Make a channel (database channel), then make the bot as admin in channel, and it's id",
-          "value": "-1003055836254",
+          "value": "",
           "required": true          
       },
       "FORCE_SUB_CHANNEL": {
         "description": "id of the channel or group, if you want enable force sub feature else put 0",
-        "value": "-1003006250672",
+        "value": "",
         "required": false
       },
       "DB_URL": {
           "description": "Your Mongo DB Database URL",
-          "value": "mongodb+srv://johndarvis164_db_user:A8jXasyAYLC2YPTg@cluster0.gchctwz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+          "value": "",
           "required": true
       },
       "DB_NAME":{ 
           "description":"Your Mongo DB Database Name",
-          "value": "madflixbotz",
+          "value": "anshmusicbot",
           "required": false
       },
       "START_MESSAGE": {
@@ -58,7 +58,7 @@
       },
       "ADMINS": {
         "description": "A space separated list of user_ids of Admins, they can only create links",
-        "value": "1991559687 1716268996",
+        "value": "",
         "required": false
       },
       "PROTECT_CONTENT": {
