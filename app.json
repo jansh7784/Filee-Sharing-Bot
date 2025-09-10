@@ -8,37 +8,37 @@
   "env": {
       "API_ID": {
           "description": "Your APP ID From my.telegram.org ",
-          "value": "",
+          "value": "7162326", 
           "required": true
       },
       "API_HASH": {
           "description": "Your API Hash From my.telegram.org ",
-          "value": "",
+          "value": "6fce46ac6f18aa4db3e4008716ca23e1",
           "required": true
       },
       "BOT_TOKEN": {
           "description": "Your Bot Token From @BotFather",
-          "value": "",
+          "value": "1950074583:AAHS6Zh2fAsA-2HsIkJwF8tXGDsNUpWBH_I",
           "required": true
       },
       "OWNER_ID": {
         "description":"Add Your User ID here",
-        "value": "",
+        "value": "1991559687",
         "required": true
       },
       "CHANNEL_ID": {
           "description":"Make a channel (database channel), then make the bot as admin in channel, and it's id",
-          "value": "",
+          "value": "-1003055836254",
           "required": true          
       },
       "FORCE_SUB_CHANNEL": {
         "description": "id of the channel or group, if you want enable force sub feature else put 0",
-        "value": "",
+        "value": "-1003006250672",
         "required": false
       },
       "DB_URL": {
           "description": "Your Mongo DB Database URL",
-          "value": "",
+          "value": "mongodb+srv://johndarvis164_db_user:A8jXasyAYLC2YPTg@cluster0.gchctwz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
           "required": true
       },
       "DB_NAME":{ 
@@ -58,7 +58,7 @@
       },
       "ADMINS": {
         "description": "A space separated list of user_ids of Admins, they can only create links",
-        "value": "",
+        "value": "1991559687 1716268996",
         "required": false
       },
       "PROTECT_CONTENT": {
@@ -69,6 +69,26 @@
       "FILE_AUTO_DELETE": {
         "description": "auto delete in seconds",
         "value": "1200",
+        "required": false
+      },
+      "TG_BOT_WORKERS": {
+        "description": "Number of bot workers",
+        "value": "4",
+        "required": false
+      },
+      "PORT": {
+        "description": "Port for web server",
+        "value": "8080",
+        "required": false
+      },
+      "CUSTOM_CAPTION": {
+        "description": "Custom caption for files",
+        "value": "",
+        "required": false
+      },
+      "DISABLE_CHANNEL_BUTTON": {
+        "description": "Disable channel button",
+        "value": "True",
         "required": false
       }
   },

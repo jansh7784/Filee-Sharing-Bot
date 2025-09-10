@@ -1,4 +1,5 @@
 from pyrogram import __version__
+from pyrogram.enums import ParseMode
 from bot import Bot
 from config import OWNER_ID, ADMINS
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
@@ -84,8 +85,11 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     
     elif data == "stats_help" and is_admin:
         now = datetime.now()
-        delta = now - client.uptime
-        time = get_readable_time(delta.seconds)
+        if hasattr(client, 'uptime'):
+            delta = now - client.uptime
+            time = get_readable_time(delta.seconds)
+        else:
+            time = "Unknown"
         stats_text = f"""
 📊 <b>BOT STATISTICS</b> 📊
 
