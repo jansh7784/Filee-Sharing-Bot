@@ -1,6 +1,6 @@
 import os
 import sys
-from bot import Bot
+import traceback
 
 def check_required_env_vars():
     """Check if all required environment variables are set"""
@@ -16,8 +16,11 @@ def check_required_env_vars():
     
     missing_vars = []
     for var in required_vars:
-        if not os.environ.get(var):
+        value = os.environ.get(var)
+        if not value or value.strip() == "":
             missing_vars.append(var)
+        else:
+            print(f"✅ {var}: {'*' * len(value)}")
     
     if missing_vars:
         print(f"❌ Missing required environment variables: {', '.join(missing_vars)}")
@@ -27,6 +30,23 @@ def check_required_env_vars():
     print("✅ All required environment variables are set!")
 
 if __name__ == "__main__":
-    print("🚀 Starting Ansh Music Bot...")
-    check_required_env_vars()
-    Bot().run()
+    try:
+        print("🚀 Starting Ansh Music Bot...")
+        print("=" * 50)
+        check_required_env_vars()
+        print("=" * 50)
+        
+        from bot import Bot
+        print("📦 Bot module imported successfully")
+        
+        bot = Bot()
+        print("🤖 Bot instance created successfully")
+        
+        print("🔄 Starting bot...")
+        bot.run()
+        
+    except Exception as e:
+        print(f"❌ Error starting bot: {str(e)}")
+        print("📋 Full traceback:")
+        traceback.print_exc()
+        sys.exit(1)
